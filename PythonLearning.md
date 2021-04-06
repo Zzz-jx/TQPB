@@ -101,3 +101,35 @@ x = [1, 2, 3, 4]
 >>> string1
 'this string broken by a backslash will end upwith the indentation tabs in it'
 ```
+
+---
+
+## 第9章 函数
+
+### 9.2.3 变长实参
+
+```python
+>>> def example_fun(x, y, **other): # 多余的关键字实参作为字典输入
+	print("x: {0}, y: {1}, keys in 'other': {2}".format(x,
+							    y, list(other.keys())))
+	other_total = 0
+	for k in other.keys():
+		other_total = other_total + other[k]
+	print("The total of values in 'other' is {0}".format(other_total))
+    
+>>> example_fun(2, 1, foo = 4, bar = 5)
+x: 2, y: 1, keys in 'other': ['foo', 'bar']
+The total of values in 'other' is 9
+
+>>> def ex2(x, y, *z): # 多余的位置实参作为元组输入
+	if len(z) > 1:
+		print("x: {0}, y: {1}, tuple z : {2}".format(x, y, z))
+	else:
+		print("x: {0}, y: {1}, z : {2}".format(x, y, z))
+
+		
+>>> ex2(1, 23, 3)
+x: 1, y: 23, z : (3,)
+>>> ex2(1, 3, 4, 5, 6)
+x: 1, y: 3, tuple z : (4, 5, 6)
+```
