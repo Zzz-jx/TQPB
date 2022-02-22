@@ -1,0 +1,2 @@
+output will be sent to the file D:\SourceCode\PythonScript\ch13\stdout.txt
+restore to normal by calling 'mio.restore_output()'
